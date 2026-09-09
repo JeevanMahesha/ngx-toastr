@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ToastrModule, ToastrService } from '@openng/ngx-toastr';
 import { firstValueFrom } from 'rxjs';
@@ -17,7 +18,7 @@ describe('Toasts', () => {
           enableHtml: true,
         }),
       ],
-      providers: [ToastManagerService, ToastrService],
+      providers: [provideZonelessChangeDetection(), ToastManagerService, ToastrService],
     });
 
     toastManager = TestBed.inject(ToastManagerService);
